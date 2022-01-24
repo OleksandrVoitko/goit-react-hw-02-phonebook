@@ -1,2 +1,5 @@
 # goit-react-hw-02-phonebook
-React: forms
+
+React: Forms
+
+1. nanoid
