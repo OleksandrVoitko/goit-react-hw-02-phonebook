@@ -8,10 +8,11 @@ class App extends Component {
     contacts: [],
   };
 
-  formSubmitHandler = (name) => {
+  formSubmitHandler = (name, number) => {
     const newContact = {
       id: nanoid(),
       name,
+      number,
     };
 
     this.setState(({ contacts }) => ({
