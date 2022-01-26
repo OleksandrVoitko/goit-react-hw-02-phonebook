@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 import Forma from "../Forma/Forma";
 import ContactList from "../ContactList";
 import Filter from "../Filter";
+import { Wrapper } from "./App.styled";
 
 class App extends Component {
   state = {
@@ -44,17 +45,26 @@ class App extends Component {
     );
   };
 
+  deleteContact = (id) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter((contact) => contact.id !== id),
+    }));
+  };
+
   render() {
     const { filter } = this.state;
     const filteredContacts = this.getFilteredContacts();
     return (
-      <div>
+      <Wrapper>
         <h2>Phonebook</h2>
         <Forma onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.filterHandler} />
-        <ContactList contacts={filteredContacts} />
-      </div>
+        <ContactList
+          contacts={filteredContacts}
+          deleteContact={this.deleteContact}
+        />
+      </Wrapper>
     );
   }
 }

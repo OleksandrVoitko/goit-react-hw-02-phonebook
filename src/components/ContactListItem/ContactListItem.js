@@ -1,10 +1,14 @@
 import React from "react";
+import { ContactItem, ContactDeleteButton } from "./ContactListItem.styled";
 
-const ContactListItem = ({ id, name, number }) => {
+const ContactListItem = ({ id, name, number, onClickDeleteContact }) => {
   return (
-    <li key={id}>
+    <ContactItem key={id}>
       {name}: {number}
-    </li>
+      <ContactDeleteButton type="submit" onClick={onClickDeleteContact}>
+        Delete
+      </ContactDeleteButton>
+    </ContactItem>
   );
 };
 
