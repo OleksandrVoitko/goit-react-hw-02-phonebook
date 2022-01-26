@@ -1,19 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ContactListItem from "../ContactListItem";
 
-const ContactsList = ({ contacts }) => {
+const ContactList = ({ contacts }) => {
   return (
     <ul>
       {contacts.map(({ id, name, number }) => (
-        <li key={id}>
-          {name} {number}
-        </li>
+        <ContactListItem key={id} name={name} number={number}></ContactListItem>
       ))}
     </ul>
   );
 };
 
-ContactsList.propTypes = {
+ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -23,4 +22,4 @@ ContactsList.propTypes = {
   ),
 };
 
-export default ContactsList;
+export default ContactList;

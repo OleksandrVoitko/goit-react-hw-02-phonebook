@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
 import Forma from "../Forma/Forma";
-import ContactsList from "../ContactsList";
+import ContactList from "../ContactList";
 import Filter from "../Filter";
 
 class App extends Component {
@@ -48,7 +48,7 @@ class App extends Component {
         <Forma onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.filterHandler} />
-        <ContactsList contacts={filteredContacts} />
+        <ContactList contacts={filteredContacts} />
       </div>
     );
   }
