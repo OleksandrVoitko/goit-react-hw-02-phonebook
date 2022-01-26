@@ -16,11 +16,16 @@ class App extends Component {
   };
 
   formSubmitHandler = (name, number) => {
+    const { contacts } = this.state;
     const newContact = {
       id: nanoid(),
       name,
       number,
     };
+
+    if (contacts.find((contact) => contact.name === newContact.name)) {
+      return alert(`${newContact.name} is already in contacts.`);
+    }
 
     this.setState(({ contacts }) => ({
       contacts: [...contacts, newContact],
