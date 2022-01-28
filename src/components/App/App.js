@@ -23,8 +23,23 @@ class App extends Component {
       name,
       number,
     };
-
-    if (contacts.find((contact) => contact.name === newContact.name)) {
+    console.log(contacts);
+    console.log(newContact.name);
+    console.log(
+      contacts.find((contact) => {
+        console.log(contact.name);
+        console.log(newContact.name);
+        console.log(contact.name === newContact.name);
+        return contact.name === newContact.name;
+      })
+    );
+    if (
+      contacts.find(
+        (contact) =>
+          contact.name.toLowerCase() === newContact.name.toLowerCase()
+      )
+    ) {
+      console.log(newContact.name);
       return alert(`${newContact.name} is already in contacts.`);
     }
 
